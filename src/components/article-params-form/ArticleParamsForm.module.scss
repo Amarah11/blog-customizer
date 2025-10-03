@@ -16,6 +16,7 @@
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: column;
+	gap: 50px;
 	box-sizing: border-box;
 	width: 616px;
 	height: auto;
@@ -29,4 +30,16 @@
 	display: flex;
 	justify-content: space-between;
 	margin-top: auto;
+}
+
+.title {
+	font-weight: 800;
+	font-size: 31px;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 0;
+}
+
+.hr {
+	width: 100%;
+	border: 1px solid #d7d7d7;
 }

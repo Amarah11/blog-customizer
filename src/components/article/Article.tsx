@@ -3,12 +3,32 @@ import clsx from 'clsx';
 // Сообщаем вебпаку, что этот файл использует это изображение.
 import plane from 'src/images/plane.png';
 import { Text } from 'src/ui/text';
-
+import { OptionType } from 'src/constants/articleProps';
 import styles from './Article.module.scss';
 
-export const Article = () => {
+interface ArticleParams {
+	fontFamilyOption: OptionType;
+	fontColor: OptionType;
+	backgroundColor: OptionType;
+	contentWidth: OptionType;
+	fontSizeOption: OptionType;
+}
+
+interface ArticleProps {
+	params: ArticleParams;
+}
+
+export const Article = ({ params }: ArticleProps) => {
 	return (
-		<article className={clsx(styles.article)}>
+		<article
+			className={clsx(styles.article)}
+			style={{
+				fontFamily: params.fontFamilyOption.value,
+				color: params.fontColor.value,
+				backgroundColor: params.backgroundColor.value,
+				maxWidth: params.contentWidth.value,
+				fontSize: params.fontSizeOption.value,
+			}}>
 			<Text as='h1' size={45} weight={800} uppercase dynamicLite>
 				Портрет Западной Швейцарии
 			</Text>
@@ -42,8 +62,8 @@ export const Article = () => {
 				Романдия&quot; и регистрационный номер HB-JCA ; совершает в среднем 4
 				коммерческих полёта в сутки. Его можно видеть в &quot;Домодедово&quot;,
 				а также в аэропортах Парижа, Валенсии, Кракова, Берлина, Вены, Загреба,
-				на на Майорке, Крите и Сицилии. Самолёт останется в той же ливрее, пока
-				его купит другая авиакомпания.
+				на Майорке, Крите и Сицилии. Самолёт останется в той же ливрее, пока его
+				купит другая авиакомпания.
 			</Text>
 		</article>
 	);
