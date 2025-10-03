@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+// import clsx from 'clsx';
 
 // Сообщаем вебпаку, что этот файл использует это изображение.
 import plane from 'src/images/plane.png';
@@ -21,7 +21,7 @@ interface ArticleProps {
 export const Article = ({ params }: ArticleProps) => {
 	return (
 		<article
-			className={clsx(styles.article)}
+			className={styles.article}
 			style={{
 				fontFamily: params.fontFamilyOption.value,
 				color: params.fontColor.value,

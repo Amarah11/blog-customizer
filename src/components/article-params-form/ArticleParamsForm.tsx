@@ -28,10 +28,10 @@ export const ArticleParamsForm = ({
 	params,
 	setParams,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const handleArrowButtonClick = () => {
-		setIsOpen((prevState) => !prevState);
+		setIsMenuOpen((prevState) => !prevState);
 	};
 
 	const [selectedFamily, setSelectedFamily] = useState(params.fontFamilyOption);
@@ -66,13 +66,15 @@ export const ArticleParamsForm = ({
 			contentWidth: selectedContentWidth,
 			fontSizeOption: selectedSize,
 		});
-		setIsOpen(false);
+		setIsMenuOpen(false);
 	};
 	return (
 		<div>
-			<ArrowButton isOpen={isOpen} onClick={handleArrowButtonClick} />
+			<ArrowButton isOpen={isMenuOpen} onClick={handleArrowButtonClick} />
 			<aside
-				className={clsx(styles.container, { [styles.container_open]: isOpen })}>
+				className={clsx(styles.container, {
+					[styles.container_open]: isMenuOpen,
+				})}>
 				<form
 					className={styles.form}
 					onReset={(e) => {
